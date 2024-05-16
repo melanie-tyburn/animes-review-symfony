@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un anime{% endblock %}
+
+{% block body %}
+    {% include 'header.html.twig' %}
+    <div class="content">
+        <a href="{{ path('accueil') }}" class="">Retour</a>
+        <h2>Ajouter un anime</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

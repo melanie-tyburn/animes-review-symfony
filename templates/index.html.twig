@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Animes Review - Accueil{% endblock %}
+
+{% block body %}
+    {% include 'header.html.twig' %}
+    <div class="content">
+
+        <h2>Il y a {{ animes|length }} animes vus</h2>
+        <div class="filters">
+            <select id="genre-filter">
+                <option value="">Tous les genres</option>
+                <option value="action">Action</option>
+                <option value="comedie">Comedie</option>
+                <option value="drame">Drame</option>
+                <option value="horreur">Horreur</option>
+                <option value="autre">Autre</option>
+            </select>
+            <select id="type-filter">
+                <option value="">Tous les types</option>
+                <option value="shojo">Shojo</option>
+                <option value="shonen">Shonen</option>
+                <option value="seinen">Seinen</option>
+                <option value="josei">Josei</option>
+                <option value="autre">Autre</option>
+            </select>
+            <select id="notation-filter">
+                <option value="">Toutes les notations</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="animes" style="display:flex;">
+            {% for anime in animes %}
+                <div class="anime">
+                <p class="title">{{ anime.nom }}</p>
+                <p><strong>Genre :</strong>  <span class="genre">{{ anime.genre }}</span></p>
+                <p><strong>Type :</strong> <span class="type">{{ anime.type }}</span></p>
+                <p><strong>Notation :</strong> <span class="notation">{{ anime.notation }}</span></p>
+                <p><strong>Commentaires :</strong> {{ anime.commentaires }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+<header>
+    <a href="{{ path('accueil') }}"><img src="logo.png" id="logo"/></a>
+    <h1 class="title-site">Animes Review</h1>
+    {% if app.user %}
+        <div class="mb-3">
+            <a href="{{ path('ajouter_anime') }}">Ajouter un anime</a>
+            <a href="{{ path('app_logout') }}"><img src="se-deconnecter.png"/></a>
+        </div>
+    {% else %}
+        <a href="{{ path('app_login') }}">Se connecter</a>
+    {% endif %}
+</header>
