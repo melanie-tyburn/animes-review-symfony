@@ -22,10 +22,14 @@ class AnimeController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($anime);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('accueil'); // Redirigez vers une autre page après l'ajout
+            $existingAnime = $entityManager->getRepository(Anime::class)->findOneBy(['nom' => $anime->getNom()]);           
+            if ($existingAnime) {
+                $this->addFlash('error', 'Un anime avec ce nom existe déjà.');
+            } else {
+                $entityManager->persist($anime);
+                $entityManager->flush();
+                return $this->redirectToRoute('accueil');
+            }
         }
 
         return $this->render('ajouter_anime.html.twig', [

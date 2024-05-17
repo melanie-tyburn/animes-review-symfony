@@ -5,6 +5,13 @@
 {% block body %}
     {% include 'header.html.twig' %}
     <div class="content">
+        {% for label, messages in app.flashes %}
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p style ="color:red;">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
         <a href="{{ path('accueil') }}" class="">Retour</a>
         <h2>Ajouter un anime</h1>
         {{ form_start(form) }}

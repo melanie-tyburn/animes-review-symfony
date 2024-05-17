@@ -1,17 +1,21 @@
 $(document).ready(function() {
     $('#genre-filter, #type-filter, #notation-filter').change(function() {
-        var genre = $('#genre-filter').val();
-        var type = $('#type-filter').val();
+        var genre = $('#genre-filter').val().toLowerCase();
+        var type = $('#type-filter').val().toLowerCase();
         var notation = $('#notation-filter').val();
 
         $('.anime').each(function() {
             var animeGenre = $(this).find('.genre').text().toLowerCase();
             var animeType = $(this).find('.type').text().toLowerCase();
             var animeNotation = $(this).find('.notation').text();
-            if (((animeGenre !== genre && genre !== "")) || (animeType !== type && type !== "") || (animeNotation !== notation && notation !== "")) {
-                $('.anime').hide();
+
+            // Logique de filtrage corrigée
+            if ((genre === "" || animeGenre.includes(genre)) &&
+                (type === "" || animeType.includes(type)) &&
+                (notation === "" || animeNotation === notation)) {
+                $(this).show();
             } else {
-                $('.anime').show();
+                $(this).hide();
             }
         });
     });

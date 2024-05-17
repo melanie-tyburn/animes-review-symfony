@@ -78,7 +78,11 @@ header a {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content:space-between;
+}
+.anime a {
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
 }
 .anime {
     width: 250px;
@@ -87,6 +91,7 @@ header a {
     margin-bottom: 20px;
     background-color:white;
     border-radius: 10px;
+    margin-left:10px;
 }
 
 .animes .title {
@@ -96,7 +101,7 @@ header a {
     font-weight: bold;
     border-bottom: 1px solid black;
     padding-bottom: 15px;
-    color: #ca0000;
+    color: #ff7800;
 }
 
 .filters {

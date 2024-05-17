@@ -35,7 +35,9 @@
         <div class="animes" style="display:flex;">
             {% for anime in animes %}
                 <div class="anime">
-                <p class="title">{{ anime.nom }}</p>
+                <a href="https://www.google.com/search?q={{ anime.nom | url_encode }}" target="_blank">
+                    <p class="title">{{ anime.nom }}</p>
+                </a>
                 <p><strong>Genre :</strong>  <span class="genre">{{ anime.genre }}</span></p>
                 <p><strong>Type :</strong> <span class="type">{{ anime.type }}</span></p>
                 <p><strong>Notation :</strong> <span class="notation">{{ anime.notation }}</span></p>
